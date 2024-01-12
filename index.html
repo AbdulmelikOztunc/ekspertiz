@@ -4,277 +4,298 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Ekspertiz</title>
+    <link rel="stylesheet" href="diger/style.css">
     <style>
-      .not {
-        min-height: 80px;
-        border-color: rgb(50, 50, 50);
-      }
-     label, th, td{
-        border-radius: 5px;
-      }
-      div{
-        border-radius: 5px;
-      }
-      .resimYazi{
-        font-weight: 700;
-        background-color: rgba(255, 255, 255, 0.7); /* Açıklama kutusunun arkaplan rengi ve opaklığı */
-        border-radius: 10px;
-        position:absolute;
-        font-size: small;
-      }
-      .dikey-yazi {
-        white-space: nowrap; /* Satır sonu kesme */
-        transform: rotate(-90deg); /* 90 derece döndürme */
-        transform-origin: left bottom; /* Dönme noktası */
-        position:absolute;
-      }
-      .sagOnKapi{
-        top:82%;
-        left:53%;
-      }
-      .sagArkaKapi{
-        top:82%;
-        left:40%;
-      }
-      .sagOnCmrlk{
-        top:81%;
-        left:70%;
-      }
-      .sagArkaCmrlk{
-        top:80%;
-        left:25%;
-      }
-      .solOnKapi{
-        top:13%;
-        left:53%;
-      }
-      .solArkaKapi{
-        top:13%;
-        left:40%;
-      }
-      .solOnCmrlk{
-        top:15%;
-        left:70%;
-      }
-      .solArkaCmrlk{
-        top:15%;
-        left:25%;
-      } 
-      .kaput{
-        top:51%;
-        left:83%;
-      }  
-      .tavan{
-        top:51%;
-        left:40%;
-      }    
-      .bagaj{
-        top:51%;
-        left:10%;
-      } 
-      .tampon{
-        top:51%;
-        left:97%;
-      }
-      .resim {
-        position: relative;
-        display: inline-block; /* Resmin boyutuna göre container'ın boyutunu ayarlar */
-        width: 463px;
-        height: 408px;
-      }
-      .formdivi{
-        display: block;        
-      }
-      .logo{
-        border-radius: 40px;
-        width:80px;
-      }
-
     </style>
 </head>
 <body>
-    <div class="container formdivi mt-5 d-none">
-        <h1 class="text-center mt-5 mb-4">Ekspertiz Formu</h1>
-        <form id="myForm">
-            <!-- Ön Panel -->
+    <div class="container formdivi  ">
+        <h1 class="text-center mt-4 mb-4">Ekspertiz Formu</h1>        
             <div class="form-group row m-1">
-                <label for="onPanel" class="col-sm-2 col-form-label bg-secondary text-white" >Ön Panel:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="onPanel" name="onPanel" >
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Plaka No</label>
+                <div class="col-sm-2 ">                   
+                    <input type="text" id="plaka"class="form-control" onchange="updateValue(this)">
+                </div>
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Şase No</label>
+                <div class="col-sm-2 ">                   
+                    <input type="text" id="sase"class="form-control"  onchange="updateValue(this)">
+                </div>
+            </div>
+            <hr class="mt-3">         
+            
+            <div class="form-group row m-1">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sağ Ön Kapı</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="sagOnKapi">
                         <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
+                        <option value="BOYALI">Boyalı</option>
                         <option value="DEĞİŞMİŞ">Değişmiş</option>
                     </select>
                 </div>
-                <label for="onKaput" class="col-sm-2 col-form-label bg-secondary text-white">Ön Kaput:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="onKaput" name="onKaput">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sağ Arka Kapı</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="sagArkaKapi">
                         <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
+                        <option value="BOYALI">Boyalı</option>
+                        <option value="DEĞİŞMİŞ">Değişmiş</option>
+                    </select>
+                </div>
+            </div>      
+            <div class="form-group row m-1">
+                <label for="murluk" class="col-sm-4  col-form-label bg-secondary text-white">Sağ Ön Çamurluk</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="sagOnCmrlk">
+                        <option value="ORJİNAL">Orjinal</option>
+                        <option value="BOYALI">Boyalı</option>
+                        <option value="DEĞİŞMİŞ">Değişmiş</option>
+                    </select>
+                </div>
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sağ Arka Çamurluk</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="sagArkaCmrlk" name="onPanel" onchange="updateValue(this)">
+                        <option value="ORJİNAL">Orjinal</option>
+                        <option value="BOYALI">Boyalı</option>
                         <option value="DEĞİŞMİŞ">Değişmiş</option>
                     </select>
                 </div>
             </div>
-
-
-            <!-- Sol Ön Çamurluk -->
+      
             <div class="form-group row m-1">
-                <label for="solOnCamurluk" class="col-sm-2 col-form-label bg-secondary text-white">Sol Ön Çamurluk:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="solOnCamurluk" name="solOnCamurluk">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sol Ön Kapı</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="solOnKapi">
                         <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
+                        <option value="BOYALI">Boyalı</option>
                         <option value="DEĞİŞMİŞ">Değişmiş</option>
                     </select>
                 </div>
-                <label for="onPanel" class="col-sm-2 col-form-label bg-secondary text-white">Sağ Ön Kapı</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="sagOnKapi" name="onPanel" onchange="updateValue(this)">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sol Arka Kapı</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="solArkaKapi">
                         <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
+                        <option value="BOYALI">Boyalı</option>
                         <option value="DEĞİŞMİŞ">Değişmiş</option>
                     </select>
                 </div>
-            </div>
-
+            </div>      
             <div class="form-group row m-1">
-                <label for="onPanel" class="col-sm-2 col-form-label bg-secondary text-white">Ön Panel:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="onPanel1" name="onPanel">
+                <label for="murluk" class="col-sm-4  col-form-label bg-secondary text-white">Sol Ön Çamurluk</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="solOnCmrlk">
                         <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
+                        <option value="BOYALI">Boyalı</option>
                         <option value="DEĞİŞMİŞ">Değişmiş</option>
                     </select>
                 </div>
-                <label for="onKaput" class="col-sm-2 col-form-label bg-secondary text-white">Ön Kaput:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="onKaput2" name="onKaput">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sol Arka Çamurluk</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="solArkaCmrlk" name="onPanel" onchange="updateValue(this)">
                         <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
+                        <option value="BOYALI">Boyalı</option>
                         <option value="DEĞİŞMİŞ">Değişmiş</option>
                     </select>
                 </div>
             </div>
             <div class="form-group row m-1">
-                <label for="onPanel" class="col-sm-2 col-form-label bg-secondary text-white">Ön Panel:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="onPanel3" name="onPanel">
+                <label for="murluk" class="col-sm-4  col-form-label bg-secondary text-white">Tavan</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="tavan">
                         <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
+                        <option value="BOYALI">Boyalı</option>
                         <option value="DEĞİŞMİŞ">Değişmiş</option>
                     </select>
                 </div>
-                <label for="onKaput" class="col-sm-2 col-form-label bg-secondary text-white">Ön Kaput:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="onKaput4" name="onKaput">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Bagaj</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="bagaj" name="onPanel" onchange="updateValue(this)">
                         <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
+                        <option value="BOYALI">Boyalı</option>
                         <option value="DEĞİŞMİŞ">Değişmiş</option>
                     </select>
                 </div>
             </div>
-
             <div class="form-group row m-1">
-                <label for="onPanel" class="col-sm-2 col-form-label bg-secondary text-white">Ön Panel:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="onPanel6" name="onPanel">
+                <label for="murluk" class="col-sm-4  col-form-label bg-secondary text-white">Kaput</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="kaput">
                         <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
+                        <option value="BOYALI">Boyalı</option>
+                        <option value="DEĞİŞMİŞ">Değişmiş</option>
+                    </select>
+                </div>        
+            </div>
+            <hr class="mt-3">
+            <div class="form-group row m-1">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sağ Ön Şasi</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="sagOnSasi" name="onPanel">
+                        <option value="ORJİNAL">Orjinal</option>
+                        <option value="BOYALI">Boyalı</option>
                         <option value="DEĞİŞMİŞ">Değişmiş</option>
                     </select>
                 </div>
-                <label for="onKaput" class="col-sm-2 col-form-label bg-secondary text-white">Ön Kaput:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="onKaput6" name="onKaput">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sağ Ön Podye</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="sagOnPodye" name="onKaput">
                         <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
+                        <option value="BOYALI">Boyalı</option>
                         <option value="DEĞİŞMİŞ">Değişmiş</option>
                     </select>
                 </div>
             </div>
-
+            <div class="form-group row m-1">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sol Ön Şasi</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="solOnSasi" name="onPanel">
+                        <option value="ORJİNAL">Orjinal</option>
+                        <option value="BOYALI">Boyalı</option>
+                        <option value="DEĞİŞMİŞ">Değişmiş</option>
+                    </select>
+                </div>
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sol Ön Podye</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="solOnPodye" name="onKaput">
+                        <option value="ORJİNAL">Orjinal</option>
+                        <option value="BOYALI">Boyalı</option>
+                        <option value="DEĞİŞMİŞ">Değişmiş</option>
+                    </select>
+                </div>
+            </div>
+      
+            <div class="form-group row m-1">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Ön Panel</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="onPanel" name="onPanel">
+                        <option value="ORJİNAL">Orjinal</option>
+                        <option value="BOYALI">Boyalı</option>
+                        <option value="DEĞİŞMİŞ">Değişmiş</option>
+                    </select>
+                </div>
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sağ Orta Direk</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="sagOrtaDirek" name="onKaput">
+                        <option value="ORJİNAL">Orjinal</option>
+                        <option value="BOYALI">Boyalı</option>
+                        <option value="DEĞİŞMİŞ">Değişmiş</option>
+                    </select>
+                </div>
+            </div>
+      
           
             <div class="form-group row m-1">
-                <label for="onPanel" class="col-sm-2 col-form-label bg-secondary text-white">Ön Panel:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="onPanel7" name="onPanel">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sol Orta Direk</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="solOrtaDirek" name="onPanel">
                         <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
+                        <option value="BOYALI">Boyalı</option>
                         <option value="DEĞİŞMİŞ">Değişmiş</option>
                     </select>
                 </div>
-                <label for="onKaput" class="col-sm-2 col-form-label bg-secondary text-white">Ön Kaput:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="onKaput8" name="onKaput">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sağ Arka Şasi</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="sagArkaSasi" name="onKaput">
                         <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
-                        <option value="DEĞİŞMİŞ">Değişmiş</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group row m-1">
-                <label for="onPanel" class="col-sm-2 col-form-label bg-secondary text-white">Ön Panel:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="onPanel9" name="onPanel">
-                        <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
-                        <option value="DEĞİŞMİŞ">Değişmiş</option>
-                    </select>
-                </div>
-                <label for="onKaput" class="col-sm-2 col-form-label bg-secondary text-white">Ön Kaput:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="onKaput77" name="onKaput">
-                        <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
+                        <option value="BOYALI">Boyalı</option>
                         <option value="DEĞİŞMİŞ">Değişmiş</option>
                     </select>
                 </div>
             </div>
             <div class="form-group row m-1">
-                <label for="onPanel" class="col-sm-2 col-form-label bg-secondary text-white">Ön Panel:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="onPanel88" name="onPanel">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sol Arka Şasi</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="solArkaSasi" name="onPanel">
                         <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
+                        <option value="BOYALI">Boyalı</option>
                         <option value="DEĞİŞMİŞ">Değişmiş</option>
                     </select>
                 </div>
-                <label for="onKaput" class="col-sm-2 col-form-label bg-secondary text-white">Ön Kaput:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="onKaput99" name="onKaput">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Bagaj Havuzu</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="bagajHavuz" name="onKaput">
                         <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
+                        <option value="BOYALI">Boyalı</option>
                         <option value="DEĞİŞMİŞ">Değişmiş</option>
                     </select>
                 </div>
             </div>
             <div class="form-group row m-1">
-                <label for="onPanel" class="col-sm-2 col-form-label bg-secondary text-white">Ön Panel:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="66onPanel" name="onPanel">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sağ Omuz Direği</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="sagOmuz" name="onPanel">
                         <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
+                        <option value="BOYALI">Boyalı</option>
                         <option value="DEĞİŞMİŞ">Değişmiş</option>
                     </select>
                 </div>
-                <label for="onKaput" class="col-sm-2 col-form-label bg-secondary text-white">Ön Kaput:</label>
-                <div class="col-sm-4">
-                    <select class="form-control" id="55onKaput" name="onKaput">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sol Umuz Direği</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="solOmuz" name="onKaput">
                         <option value="ORJİNAL">Orjinal</option>
-                        <option value="BOYALİ">Boyalı</option>
+                        <option value="BOYALI">Boyalı</option>
                         <option value="DEĞİŞMİŞ">Değişmiş</option>
                     </select>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Formu Gönder</button>
-        </form>
+            <div class="form-group row m-1">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sağ İç Direk</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="sagIcDirek" name="onPanel">
+                        <option value="ORJİNAL">Orjinal</option>
+                        <option value="BOYALI">Boyalı</option>
+                        <option value="DEĞİŞMİŞ">Değişmiş</option>
+                    </select>
+                </div>
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sol İç Direk</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="solIcDirek" name="onKaput">
+                        <option value="ORJİNAL">Orjinal</option>
+                        <option value="BOYALI">Boyalı</option>
+                        <option value="DEĞİŞMİŞ">Değişmiş</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row m-1">
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sağ Arka Kapı Kilit Karşılığı</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="sagArkaKilit" name="onPanel">
+                        <option value="ORJİNAL">Orjinal</option>
+                        <option value="BOYALI">Boyalı</option>
+                        <option value="DEĞİŞMİŞ">Değişmiş</option>
+                    </select>
+                </div>
+                <label for="" class="col-sm-4  col-form-label bg-secondary text-white">Sol Arka Kapı Kilit Karşılığı</label>
+                <div class="col-sm-2 ">
+                    <select onchange="updateValue(this)" class="form-control" id="solArkaKilit" name="onKaput">
+                        <option value="ORJİNAL">Orjinal</option>
+                        <option value="BOYALI">Boyalı</option>
+                        <option value="DEĞİŞMİŞ">Değişmiş</option>
+                    </select>
+                </div>
+            </div>
+            <div style=" text-align:right;">
+              <button Id="printDiv" class="col-4 btn m-2 btn-success" >Görüntüle</button>
+            </div>
     </div>
-    <div class="m-2">
-        <div class="d-flex justify-content-end text-center mt-5 mb-4 align-items-center">
-            <h1>OSCAR OTOMOTİV</h1>
-            <img class="logo ms-5" src="resim/Logo.jpeg"  >
+    <div class="mx-2 px-2 position-relative printDiv ">
+        <div class="efect position-absolute"></div>
+        <div class="efect2 position-absolute"></div>
+        <div class="efect3 position-absolute"></div>
+        <div class="efect4 position-absolute"></div>
+        <div class="row">
+            <div class="col-3 fw-bold ps-3"><br><br><br>EKPERTİZ RAPORU</div>
+            <div class="col-9 d-flex justify-content-end text-center align-items-center">
+                <h2>OSCAR OTOMOTİV</h2>
+                <img class="logo mx-5" src="resim/Logo.jpeg">
+            </div>
         </div>
+        <div class="row">
+            <div class="col-6  p-0"><span style="font-size: 22px;">🕽 </span>0 (537) 564 78 61 <br> <svg xmlns="http://www.w3.org/2000/svg" height="15" width="12" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                 adres adres adres Çan / ÇANAKKALE</div>
+            <div class="col-3  p-0 pt-1"><span class="plaka"></span><br><span class="sase"></span></div>
+            <div class="col-3 p-1 Tarih  d-flex justify-content-end "></div>
+        </div>
+        
         <hr> 
         <div class="d-flex justify-content-center">
             <div class="resim  position-relative">
@@ -290,10 +311,9 @@
                     <p class="kaput resimYazi dikey-yazi">ORJİNAL</p>         
                     <p class="tavan resimYazi dikey-yazi">ORJİNAL</p>         
                     <p class="bagaj resimYazi dikey-yazi">ORJİNAL</p>         
-                    <p class="tampon resimYazi dikey-yazi">ORJİNAL</p>         
             </div>
         </div>
-        <div class="mt-4 " >
+        <div class="mt-4" >
             <table class="table ">
                 <thead>
                   <tr>
@@ -302,45 +322,73 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="bg-secondary text-white">Veri 1.1</td>
-                        <td class="table-light">Veri 1.2</td>
-                        <td class="bg-secondary text-white">Veri 1.3</td>
-                        <td class="table-light">Veri 1.4</td>
+                        <td class="bg-secondary text-white ">Ön Panel</td>
+                        <td class="table-light onPanel" width="20%">Orjinal</td>
+                        <td class="bg-secondary text-white">Bagaj Havuzu</td>
+                        <td class="table-light bagajHavuz" width="20%">Orjinal</td>
                     </tr> 
                     <tr>
-                        <td class="bg-secondary text-white">Veri 1.1</td>
-                        <td class="table-light">Veri 1.2</td>
-                        <td class="bg-secondary text-white">Veri 1.3</td>
-                        <td class="table-light">Veri 1.4</td>
+                        <td class="bg-secondary text-white">Sağ Orta Direk</td>
+                        <td class="table-light sagOrtaDirek">Orjinal</td>
+                        <td class="bg-secondary text-white">Sağ Omuz Direği</td>
+                        <td class="table-light sagOmuz">Orjinal</td>
                     </tr> 
                     <tr>
-                        <td class="bg-secondary text-white">Veri 1.1</td>
-                        <td class="table-light">Veri 1.2</td>
-                        <td class="bg-secondary text-white">Veri 1.3</td>
-                        <td class="table-light">Veri 1.4</td>
+                        <td class="bg-secondary text-white">Sol Orta Direk</td>
+                        <td class="table-light solOrtaDirek">Orjinal</td>
+                        <td class="bg-secondary text-white">Sol Omuz Direği</td>
+                        <td class="table-light solOmuz">Orjinal</td>
                     </tr>   
                     <tr>
-                        <td class="bg-secondary text-white">Veri 1.1</td>
-                        <td class="table-light">Veri 1.2</td>
-                        <td class="bg-secondary text-white">Veri 1.3</td>
-                        <td class="table-light">Veri 1.4</td>
-                    </tr>                       <tr>
-                        <td class="bg-secondary text-white">Veri 1.1</td>
-                        <td class="table-light">Veri 1.2</td>
-                        <td class="bg-secondary text-white">Veri 1.3</td>
-                        <td class="table-light">Veri 1.4</td>
-                    </tr>                   
+                        <td class="bg-secondary text-white">Sağ Arka Şasi</td>
+                        <td class="table-light sagArkaSasi">Orjinal</td>
+                        <td class="bg-secondary text-white">Sağ İç Direk</td>
+                        <td class="table-light sagIcDirek">Orjinal</td>
+                    </tr>   
+                    <tr>
+                        <td class="bg-secondary text-white">Sol Arka Şasi</td>
+                        <td class="table-light solArkaSasi">Orjinal</td>
+                        <td class="bg-secondary text-white">Sol İç Direk</td>
+                        <td class="table-light solIcDirek">Orjinal</td>
+                    </tr>
+                    <tr>
+                        <td class="bg-secondary text-white">Sağ Ön Şasi</td>
+                        <td class="table-light sagOnSasi">Orjinal</td>
+                        <td class="bg-secondary text-white">Sağ Ön Podye</td>
+                        <td class="table-light sagOnPodye">Orjinal</td>
+                    </tr>  
+                    <tr>
+                        <td class="bg-secondary text-white">Sol Ön Şasi</td>
+                        <td class="table-light solOnSasi">Orjinal</td>
+                        <td class="bg-secondary text-white">Sol Ön Podye</td>
+                        <td class="table-light solOnPodye">Orjinal</td>
+                    </tr>   
+                    <tr>
+                        <td class="bg-secondary text-white">Sağ Arka Kapı Kilit Karşılığı</td>
+                        <td class="table-light sagArkaKilit">Orjinal</td>
+                        <td class="bg-secondary text-white">Sol Arka Kapı Kilit Karşılığı</td>
+                        <td class="table-light solArkaKilit">Orjinal</td>
+                    </tr>   
+
+                  
                 </tbody>
               </table>
               <div class="row me-2">
                 <div class="col-9"></div>
-                <div class="col-3 bg-secondary text-center text-white ">Uzmanın NOTU</div>
+                <div class="col-3 bg-secondary text-center text-white" id="geri">Uzmanın NOTU</div>
               </div>            
               <div class="border border-1 not" ></div>         
           </div>
+          <hr class="mt-3 m-0">
+          <a href="http://Instagram.com/mstf10ygt" target=new>
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><path fill="#a31f47" d="M194.4 211.7a53.3 53.3 0 1 0 59.3 88.7 53.3 53.3 0 1 0 -59.3-88.7zm142.3-68.4c-5.2-5.2-11.5-9.3-18.4-12c-18.1-7.1-57.6-6.8-83.1-6.5c-4.1 0-7.9 .1-11.2 .1c-3.3 0-7.2 0-11.4-.1c-25.5-.3-64.8-.7-82.9 6.5c-6.9 2.7-13.1 6.8-18.4 12s-9.3 11.5-12 18.4c-7.1 18.1-6.7 57.7-6.5 83.2c0 4.1 .1 7.9 .1 11.1s0 7-.1 11.1c-.2 25.5-.6 65.1 6.5 83.2c2.7 6.9 6.8 13.1 12 18.4s11.5 9.3 18.4 12c18.1 7.1 57.6 6.8 83.1 6.5c4.1 0 7.9-.1 11.2-.1c3.3 0 7.2 0 11.4 .1c25.5 .3 64.8 .7 82.9-6.5c6.9-2.7 13.1-6.8 18.4-12s9.3-11.5 12-18.4c7.2-18 6.8-57.4 6.5-83c0-4.2-.1-8.1-.1-11.4s0-7.1 .1-11.4c.3-25.5 .7-64.9-6.5-83l0 0c-2.7-6.9-6.8-13.1-12-18.4zm-67.1 44.5A82 82 0 1 1 178.4 324.2a82 82 0 1 1 91.1-136.4zm29.2-1.3c-3.1-2.1-5.6-5.1-7.1-8.6s-1.8-7.3-1.1-11.1s2.6-7.1 5.2-9.8s6.1-4.5 9.8-5.2s7.6-.4 11.1 1.1s6.5 3.9 8.6 7s3.2 6.8 3.2 10.6c0 2.5-.5 5-1.4 7.3s-2.4 4.4-4.1 6.2s-3.9 3.2-6.2 4.2s-4.8 1.5-7.3 1.5l0 0c-3.8 0-7.5-1.1-10.6-3.2zM448 96c0-35.3-28.7-64-64-64H64C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V96zM357 389c-18.7 18.7-41.4 24.6-67 25.9c-26.4 1.5-105.6 1.5-132 0c-25.6-1.3-48.3-7.2-67-25.9s-24.6-41.4-25.8-67c-1.5-26.4-1.5-105.6 0-132c1.3-25.6 7.1-48.3 25.8-67s41.5-24.6 67-25.8c26.4-1.5 105.6-1.5 132 0c25.6 1.3 48.3 7.1 67 25.8s24.6 41.4 25.8 67c1.5 26.3 1.5 105.4 0 131.9c-1.3 25.6-7.1 48.3-25.8 67z"/></svg>
+            mstf10ygt
+          </a>
     </div>
-    <p id="ab"></p>
-<script src="diger/script.js"></script>
+<script>
+
+</script>
+    <script src="diger/script.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>
 </body>

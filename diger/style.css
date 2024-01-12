@@ -1,0 +1,119 @@
+.not {
+    min-height: 80px;
+    border-color: rgb(50, 50, 50);
+  }
+ label, th, td{
+    border-radius: 5px;
+  }
+  tr, td {
+    line-height: 0.8; /* Satır aralığını daha da azaltmak için küçük bir değer kullanabilirsiniz */
+  }
+  div{
+    border-radius: 5px;
+  }
+  a{
+    text-decoration:none;
+  }
+  .resimYazi{
+    font-weight: 700;
+    background-color: rgba(255, 255, 255, 0.7); /* Açıklama kutusunun arkaplan rengi ve opaklığı */
+    border-radius: 10px;
+    position:absolute;
+    font-size: small;
+  }
+  .dikey-yazi {
+    white-space: nowrap; /* Satır sonu kesme */
+    transform: rotate(-90deg); /* 90 derece döndürme */
+    transform-origin: left bottom; /* Dönme noktası */
+    position:absolute;
+  }
+  .sagOnKapi{
+    top:83%;
+    left:56%;
+  }
+  .sagArkaKapi{
+    top:82%;
+    left:40%;
+  }
+  .sagOnCmrlk{
+    top:82%;
+    left:73%;
+  }
+  .sagArkaCmrlk{
+    top:80%;
+    left:25%;
+  }
+  .solOnKapi{
+    top:12%;
+    left:56%;
+  }
+  .solArkaKapi{
+    top:13%;
+    left:40%;
+  }
+  .solOnCmrlk{
+    top:14%;
+    left:73%;
+  }
+  .solArkaCmrlk{
+    top:15%;
+    left:25%;
+  } 
+  .kaput{
+    top:52%;
+    left:85%;
+  }  
+  .tavan{
+    top:52%;
+    left:50%;
+  }    
+  .bagaj{
+    top:52%;
+    left:10%;
+  } 
+
+  .resim {
+    position: relative;
+    display: inline-block; /* Resmin boyutuna göre container'ın boyutunu ayarlar */
+    width: 396px;
+    height: 360px;
+  }
+  .formdivi{
+    display: block;        
+  }
+  .logo{
+    border-radius: 45px;
+    width:90px;
+    border: solid 3px;
+    border-color: rgb(57, 57, 57);
+  }
+  .efect{
+    width:30%;
+    height: 12px;
+    border-radius:0px 5px 5px 0px;
+    top:8.5%;
+    background-color: rgba(153, 52, 248, 0.491);
+  }
+  .efect2{
+    width:70%;
+    height: 5px;
+    border-radius:0px 5px 5px 0px;
+    top:9.3%;
+    background-color: rgba(153, 52, 248, 0.491);
+  }
+  .efect3{
+    width:50%;
+    height: 5px;
+    border-radius:0px 5px 5px 0px;
+    top:1.8%;
+    right:25%;
+    background-color: rgba(153, 52, 248, 0.491);
+  }
+  .efect4{
+    width:30%;
+    height: 10px;
+    border-radius:0px 5px 5px 0px;
+    top:1.3%;
+    right:25%;
+    background-color: rgba(153, 52, 248, 0.491);
+  }
