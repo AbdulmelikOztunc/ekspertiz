@@ -148,8 +148,8 @@
     .resim {
       position: relative;
       display: inline-block; /* Resmin boyutuna göre container'ın boyutunu ayarlar */
-      width: 396px;
-      height: 360px;
+      width: 360px;
+      height: 300px;
       font-size:smaller ;
     }
   }
