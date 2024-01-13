@@ -117,3 +117,39 @@
     right:25%;
     background-color: rgba(153, 52, 248, 0.491);
   }
+  @media screen and (max-width: 500px) {
+    .logo{
+      border-radius: 30px;
+      width:60px;
+      border: solid 3px;
+      border-color: rgb(57, 57, 57);
+    }
+    h2{
+      font-size: larger;
+    }
+    .fw-bold{
+      font-size: smaller;
+    }
+    .efect{
+      top:6.5%;
+    }
+    .efect2{
+      top:7.3%;
+    }
+    .efect3{   
+      top:.8%;
+    }
+    .efect4{
+      top:.3%;
+    }
+    .adressmobilefont{
+      font-size:smaller;
+    }
+    .resim {
+      position: relative;
+      display: inline-block; /* Resmin boyutuna göre container'ın boyutunu ayarlar */
+      width: 396px;
+      height: 360px;
+      font-size:smaller ;
+    }
+  }
