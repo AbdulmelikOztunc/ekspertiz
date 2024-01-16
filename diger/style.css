@@ -75,7 +75,7 @@
   .resim {
     position: relative;
     display: inline-block; /* Resmin boyutuna göre container'ın boyutunu ayarlar */
-    width: 396px;
+    width: 596px;
     height: 360px;
   }
   .formdivi{
@@ -129,6 +129,7 @@
     }
     .fw-bold{
       font-size: smaller;
+      z-index: 13216554;
     }
     .efect{
       top:6.5%;
